@@ -1,28 +1,31 @@
-import {
-  ArrowRight,
-  Award,
-  BarChart3,
-  BookOpen,
-  Briefcase,
-  Code2,
-  Coffee,
-  Cpu,
-  Database,
-  ExternalLink,
-  Gamepad2,
-  Github,
-  GraduationCap,
-  Layout,
-  Linkedin,
-  Mail,
-  Maximize2,
+import React, { useState, useEffect, useRef } from 'react';
+import { 
+  ArrowRight, 
+  Layout, 
+  Database, 
+  BarChart3, 
+  Github, 
+  Linkedin, 
+  Mail, 
+  ExternalLink, 
   Menu,
-  Minus,
-  Music,
+  X,
+  Code2,
+  Cpu,
+  Globe,
   Terminal,
-  X
+  TrendingUp,
+  Minimize2,
+  Maximize2,
+  Minus,
+  Briefcase,
+  GraduationCap,
+  Award,
+  Coffee,
+  Gamepad2,
+  Music,
+  BookOpen
 } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
 
 // --- Global Constants ---
 
@@ -39,7 +42,7 @@ const colors = {
   border: 'border-[#414868]'
 };
 
-// Particle class moved to module scope to avoid inline class declaration (ESLint/react-hooks)
+// Particle class defined outside component to avoid re-declaration and initialization errors
 class Particle {
   constructor(canvasWidth, canvasHeight) {
     this.canvasWidth = canvasWidth;
@@ -78,19 +81,18 @@ const ParticleBackground = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return; // Guard clause
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    if (!ctx) return; // Guard clause
+    if (!ctx) return;
 
     let animationFrameId;
     let particles = [];
     let mouse = { x: null, y: null };
 
-    // use module-scope Particle class
-
     const init = () => {
       particles = [];
-      if (canvas.width === 0 || canvas.height === 0) return; // Don't init if canvas is not visible
+      if (canvas.width === 0 || canvas.height === 0) return;
+      // Fewer particles on mobile for performance
       const numberOfParticles = window.innerWidth < 768 ? 40 : 100;
       for (let i = 0; i < numberOfParticles; i++) {
         particles.push(new Particle(canvas.width, canvas.height));
@@ -119,6 +121,7 @@ const ParticleBackground = () => {
         particles[i].update();
         particles[i].draw(ctx);
 
+        // Draw connections between particles
         for (let j = i; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
@@ -134,6 +137,7 @@ const ParticleBackground = () => {
           }
         }
 
+        // Draw connections to Mouse
         if (mouse.x != null) {
             const dx = particles[i].x - mouse.x;
             const dy = particles[i].y - mouse.y;
@@ -152,8 +156,11 @@ const ParticleBackground = () => {
       animationFrameId = requestAnimationFrame(animate);
     };
 
+    // Initialize
     resizeCanvas();
     animate();
+    
+    // Event Listeners
     window.addEventListener('resize', resizeCanvas);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', handleMouseLeave);
@@ -273,7 +280,7 @@ const Hero = () => (
           </span>
         </h1>
         <p className="text-lg text-[#a9b1d6] mb-8 max-w-lg leading-relaxed">
-          <span>Hi, </span>I am Kashish Chaudhary. A Full Stack Developer bridging the gap between complex data analytics and intuitive user interfaces.
+          I am Kashish Chaudhary. A Full Stack Developer bridging the gap between complex data analytics and intuitive user interfaces.
         </p>
         <div className="flex gap-4">
           <a href="#work" className="px-8 py-4 bg-[#7aa2f7] text-[#1a1b26] font-bold rounded-lg hover:bg-white transition-all flex items-center gap-2 group shadow-lg shadow-blue-500/25">
@@ -316,7 +323,7 @@ const ServiceCard = ({ icon: Icon, title, description, tech }) => (
   <div className={`group p-8 rounded-2xl ${colors.card} border border-[#414868]/50 hover:border-[#7aa2f7] transition-all duration-300 hover:-translate-y-2 relative overflow-hidden hover:shadow-2xl hover:shadow-[#7aa2f7]/10`}>
     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#7aa2f7]/10 to-transparent rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150 duration-500"></div>
     <div className="w-12 h-12 bg-[#1a1b26] rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#7aa2f7]/20 transition-colors">
-    <IconComp className="text-[#7aa2f7]" size={24} />
+      <Icon className="text-[#7aa2f7]" size={24} />
     </div>
     <h3 className={`text-xl font-bold ${colors.heading} mb-3`}>{title}</h3>
     <p className={`${colors.text} mb-6 leading-relaxed`}>{description}</p>
@@ -446,19 +453,19 @@ const ProfileCard = ({ platform, handle, stats, icon: Icon, url, brandColor }) =
     {/* Brand color top border */}
     <div className="absolute top-0 left-0 w-full h-[4px]" style={{ backgroundColor: brandColor }}></div>
     
-    <div className="relative z-10 pt-4"> {/* Added padding-top to account for new border */}
+    <div className="relative z-10 pt-4">
       <div className="flex justify-between items-start mb-6">
-        {/* Simplified Icon */}
-        <IconComp size={28} style={{ color: brandColor }} />
+        {/* Icon */}
+        <Icon size={28} style={{ color: brandColor }} />
         <ExternalLink size={18} className="text-[#565f89] group-hover:text-white transition-colors" />
       </div>
       <h3 className="text-lg font-bold text-white mb-1">{platform}</h3>
-      <p className="text-[#565f89] text-base mb-6">@{handle}</p>
+      <p className="text-[#565f89] text-sm mb-6">@{handle}</p>
       <div className="grid grid-cols-2 gap-4 border-t border-[#414868]/50 pt-4">
         {stats.map((stat, i) => (
           <div key={i}>
-            <p className="text-xs uppercase tracking-wider text-[#565f89] mb-1">{stat.label}</p>
-            <p className="text-[#a9b1d6] text-sm font-mono font-bold group-hover:text-white transition-colors">{stat.value}</p>
+            <p className="text-[10px] uppercase tracking-wider text-[#565f89] mb-1">{stat.label}</p>
+            <p className="text-[#a9b1d6] font-mono font-bold group-hover:text-white transition-colors">{stat.value}</p>
           </div>
         ))}
       </div>
@@ -481,7 +488,7 @@ const CodingProfiles = () => (
               <div className="w-8 h-8 rounded-full bg-[#bb9af7] border-2 border-[#1a1b26]"></div>
               <div className="w-8 h-8 rounded-full bg-[#9ece6a] border-2 border-[#1a1b26]"></div>
             </div>
-            <div className="text-base">
+            <div className="text-sm">
               <p className="text-white font-bold">500+ Problems</p>
               <p className="text-[#565f89]">Solved across platforms</p>
             </div>
@@ -490,16 +497,16 @@ const CodingProfiles = () => (
       </RevealOnScroll>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         <RevealOnScroll delay={100}>
-          <ProfileCard platform="LeetCode" handle="kashish_ch1" url="https://leetcode.com/u/kashish_ch1/" icon={Code2} brandColor="#e0af68" stats={[{ label: "Problems Solved", value: "350+" }, { label: "Global Rank", value: "Top 50%" }]} />
+          <ProfileCard platform="LeetCode" handle="kashish_ch1" url="https://leetcode.com/u/kashish_ch1/" icon={Code2} brandColor="#e0af68" stats={[{ label: "Problems Solved", value: "350+" }, { label: "Global Rank", value: "Top 15%" }]} />
         </RevealOnScroll>
         <RevealOnScroll delay={200}>
-          <ProfileCard platform="GeeksForGeeks" handle="kashishchaudhary" url="https://auth.geeksforgeeks.org/user/kashishchaudhary/" icon={Terminal} brandColor="#9ece6a" stats={[{ label: "Coding Score", value: "1200+" }, { label: "Institute Rank", value: "#700" }]} />
+          <ProfileCard platform="GeeksForGeeks" handle="kashishchaudhary" url="https://auth.geeksforgeeks.org/user/kashishchaudhary/" icon={Terminal} brandColor="#9ece6a" stats={[{ label: "Coding Score", value: "1200+" }, { label: "Institute Rank", value: "#12" }]} />
         </RevealOnScroll>
         <RevealOnScroll delay={300}>
           <ProfileCard platform="GitHub" handle="kashishch28" url="https://github.com/kashishch28" icon={Github} brandColor="#bb9af7" stats={[{ label: "Repositories", value: "25+" }, { label: "Contributions", value: "500+" }]} />
         </RevealOnScroll>
         <RevealOnScroll delay={400}>
-          <ProfileCard platform="LinkedIn" handle="Kashish Chaudhary" url="https://linkedin.com/in/kashish-chaudhary-286aa1290/" icon={Linkedin} brandColor="#0077b5" stats={[{ label: "Connections", value: "500+" }, { label: "Followers", value: "500+" }]} />
+          <ProfileCard platform="LinkedIn" handle="Kashish Chaudhary" url="https://linkedin.com/in/kashish-chaudhary-286aa1290/" icon={Linkedin} brandColor="#0077b5" stats={[{ label: "Connections", value: "500+" }, { label: "Followers", value: "850+" }]} />
         </RevealOnScroll>
       </div>
     </div>
@@ -762,7 +769,7 @@ const Footer = () => (
 // --- Main Portfolio Component ---
 
 const Portfolio = () => {
-  const [scrolled, setScrolled] =useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
