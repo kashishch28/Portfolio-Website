@@ -658,54 +658,10 @@ const JourneyTimeline = () => (
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">The Journey So Far</h2>
           <p className="text-[#a9b1d6]">From first line of code to deploying scalable applications.</p>
         </div>
-      </RevealOnScroll>
-      <div className="relative">
-        <RevealOnScroll delay={50}>
-  <TimelineItem 
-    year="2026" 
-    title="Career Growth & Advanced Projects" 
-    description="Working on industry-level projects, improving system design knowledge, and preparing for software development roles." 
-    icon={Rocket} 
-  />
-</RevealOnScroll>
-
-<RevealOnScroll delay={100}>
-  <TimelineItem 
-    year="2025" 
-    title="Full Stack Development & AI Exploration" 
-    description="Building full-stack web applications and experimenting with basic AI integrations. Focusing on writing clean code and improving project architecture." 
-    icon={Cpu} 
-  />
-</RevealOnScroll>
-
-<RevealOnScroll delay={200}>
-  <TimelineItem 
-    year="2024" 
-    title="DSA & Problem Solving Journey" 
-    description="Consistently practicing Data Structures and Algorithms on LeetCode and GFG. Strengthening logical thinking and improving coding speed." 
-    icon={Award} 
-  />
-</RevealOnScroll>
-
-<RevealOnScroll delay={300}>
-  <TimelineItem 
-    year="2023" 
-    title="MERN Stack Development" 
-    description="Developed multiple web applications using React, Node.js, Express, and MongoDB. Learned how to connect frontend with backend and manage databases." 
-    icon={Briefcase} 
-  />
-</RevealOnScroll>
-
-<RevealOnScroll delay={400}>
-  <TimelineItem 
-    year="2023" 
-    title="Programming Foundations" 
-    description="Started programming with Java and Python. Built small projects and gained a strong understanding of programming fundamentals." 
-    icon={GraduationCap} 
-    isLast={true} 
-  />
-</RevealOnScroll>
-
+          <RevealOnScroll delay={100}><TimelineItem year="2026" title="Career Growth" description="Working on real-world projects, improving coding skills, and preparing for software development roles." icon={Rocket}  /></RevealOnScroll>
+          <RevealOnScroll delay={200}><TimelineItem year="2025" title="Full Stack Development" description="Building full-stack web applications and exploring basic AI integrations to improve project quality." icon={Cpu} /></RevealOnScroll> 
+          <RevealOnScroll delay={300}><TimelineItem year="2024" title="DSA & Problem Solving" description="Practicing Data Structures and Algorithms on LeetCode and GFG to strengthen logic and coding speed." icon={Award} /></RevealOnScroll>
+          <RevealOnScroll delay={400}><TimelineItem year="2023" title="Hello World" description="Started the programming journey with Java and Python. Built foundational projects and discovered a passion for problem solving." icon={GraduationCap} isLast={true} /></RevealOnScroll>
       </div>
     </div>
   </section>
