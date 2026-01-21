@@ -660,10 +660,52 @@ const JourneyTimeline = () => (
         </div>
       </RevealOnScroll>
       <div className="relative">
-         <RevealOnScroll delay={100}><TimelineItem year="2025" title="Full Stack & AI Integration" description="Developing complex applications like GreenMirror and AyurWell, focusing on integrating AI models with robust web architectures." icon={Cpu} /></RevealOnScroll>
-         <RevealOnScroll delay={200}><TimelineItem year="2024" title="Algorithmic Mastery" description="Solved 500+ problems on LeetCode & GFG. Deep dive into Data Structures, Algorithms, and System Design patterns." icon={Award} /></RevealOnScroll>
-         <RevealOnScroll delay={300}><TimelineItem year="2023" title="MERN Stack Specialist" description="Built multiple production-ready applications including EchoCart. Mastered React, Node.js, Express, and MongoDB ecosystem." icon={Briefcase} /></RevealOnScroll>
-         <RevealOnScroll delay={400}><TimelineItem year="2022" title="Hello World" description="Started the programming journey with Java and Python. Built foundational projects and discovered a passion for problem solving." icon={GraduationCap} isLast={true} /></RevealOnScroll>
+        <RevealOnScroll delay={50}>
+  <TimelineItem 
+    year="2026" 
+    title="Career Growth & Advanced Projects" 
+    description="Working on industry-level projects, improving system design knowledge, and preparing for software development roles." 
+    icon={Rocket} 
+  />
+</RevealOnScroll>
+
+<RevealOnScroll delay={100}>
+  <TimelineItem 
+    year="2025" 
+    title="Full Stack Development & AI Exploration" 
+    description="Building full-stack web applications and experimenting with basic AI integrations. Focusing on writing clean code and improving project architecture." 
+    icon={Cpu} 
+  />
+</RevealOnScroll>
+
+<RevealOnScroll delay={200}>
+  <TimelineItem 
+    year="2024" 
+    title="DSA & Problem Solving Journey" 
+    description="Consistently practicing Data Structures and Algorithms on LeetCode and GFG. Strengthening logical thinking and improving coding speed." 
+    icon={Award} 
+  />
+</RevealOnScroll>
+
+<RevealOnScroll delay={300}>
+  <TimelineItem 
+    year="2023" 
+    title="MERN Stack Development" 
+    description="Developed multiple web applications using React, Node.js, Express, and MongoDB. Learned how to connect frontend with backend and manage databases." 
+    icon={Briefcase} 
+  />
+</RevealOnScroll>
+
+<RevealOnScroll delay={400}>
+  <TimelineItem 
+    year="2023" 
+    title="Programming Foundations" 
+    description="Started programming with Java and Python. Built small projects and gained a strong understanding of programming fundamentals." 
+    icon={GraduationCap} 
+    isLast={true} 
+  />
+</RevealOnScroll>
+
       </div>
     </div>
   </section>
