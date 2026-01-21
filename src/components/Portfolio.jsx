@@ -497,10 +497,10 @@ const CodingProfiles = () => (
       </RevealOnScroll>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         <RevealOnScroll delay={100}>
-          <ProfileCard platform="LeetCode" handle="kashish_ch1" url="https://leetcode.com/u/kashish_ch1/" icon={Code2} brandColor="#e0af68" stats={[{ label: "Problems Solved", value: "500+" }, { label: "Global Rank", value: "Top 32%" }]} />
+          <ProfileCard platform="LeetCode" handle="kashish_ch1" url="https://leetcode.com/u/kashish_ch1/" icon={Code2} brandColor="#e0af68" stats={[{ label: "Problems Solved", value: "500+" }, { label: "Global Rank", value: "Top 25%" }]} />
         </RevealOnScroll>
         <RevealOnScroll delay={200}>
-          <ProfileCard platform="GeeksForGeeks" handle="kashishchaudhary" url="https://auth.geeksforgeeks.org/user/kashishchaudhary/" icon={Terminal} brandColor="#9ece6a" stats={[{ label: "Coding Score", value: "1200+" }, { label: "Institute Rank", value: "#12" }]} />
+          <ProfileCard platform="GeeksForGeeks" handle="kashishchauq2zq" url="https://auth.geeksforgeeks.org/user/kkashishchauq2zq/" icon={Terminal} brandColor="#9ece6a" stats={[{ label: "Coding Score", value: "1200+" }, { label: "Institute Rank", value: "#12" }]} />
         </RevealOnScroll>
         <RevealOnScroll delay={300}>
           <ProfileCard platform="GitHub" handle="kashishch28" url="https://github.com/kashishch28" icon={Github} brandColor="#bb9af7" stats={[{ label: "Repositories", value: "25+" }, { label: "Contributions", value: "300+" }]} />
