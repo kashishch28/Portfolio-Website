@@ -109,7 +109,7 @@ const ParticleBackground = () => {
       mouse.x = e.x;
       mouse.y = e.y;
     };
-    
+
     const handleMouseLeave = () => {
       mouse.x = null;
       mouse.y = null;
@@ -159,7 +159,7 @@ const ParticleBackground = () => {
     // Initialize
     resizeCanvas();
     animate();
-    
+
     // Event Listeners
     window.addEventListener('resize', resizeCanvas);
     window.addEventListener('mousemove', handleMouseMove);
@@ -193,9 +193,9 @@ const RevealOnScroll = ({ children, delay = 0 }) => {
       },
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
-    
+
     observer.observe(currentRef);
-    
+
     return () => {
       observer.unobserve(currentRef);
     };
@@ -452,7 +452,7 @@ const ProfileCard = ({ platform, handle, stats, icon: Icon, url, brandColor }) =
   >
     {/* Brand color top border */}
     <div className="absolute top-0 left-0 w-full h-[4px]" style={{ backgroundColor: brandColor }}></div>
-    
+
     <div className="relative z-10 pt-4">
       <div className="flex justify-between items-start mb-6">
         {/* Icon */}
@@ -653,12 +653,18 @@ const TimelineItem = ({ year, title, description, icon: Icon, isLast }) => (
 const JourneyTimeline = () => (
   <section id="journey" className={`py-24 px-6 lg:px-8 ${colors.bgAlt} relative z-10`}>
     <div className="max-w-5xl mx-auto">
+
+
+
       <RevealOnScroll>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">The Journey So Far</h2>
           <p className="text-[#a9b1d6]">From first line of code to deploying scalable applications.</p>
         </div>
-          <RevealOnScroll delay={100}><TimelineItem year="2025" title="Full Stack & AI Integration" description="Developing complex applications like GreenMirror and AyurWell, focusing on integrating AI models with robust web architectures." icon={Cpu} /></RevealOnScroll> <RevealOnScroll delay={200}><TimelineItem year="2024" title="Algorithmic Mastery" description="Solved 500+ problems on LeetCode & GFG. Deep dive into Data Structures, Algorithms, and System Design patterns." icon={Award} /></RevealOnScroll> <RevealOnScroll delay={300}><TimelineItem year="2023" title="MERN Stack Specialist" description="Built multiple production-ready applications including EchoCart. Mastered React, Node.js, Express, and MongoDB ecosystem." icon={Briefcase} /></RevealOnScroll> <RevealOnScroll delay={400}><TimelineItem year="2023" title="Hello World" description="Started the programming journey with Java and Python. Built foundational projects and discovered a passion for problem solving." icon={GraduationCap} isLast={true} /></RevealOnScroll> </div>
+
+
+
+ </div>
     </div>
   </section>
 );
@@ -775,17 +781,17 @@ const Portfolio = () => {
   return (
     <div className={`${colors.bg} min-h-screen font-sans selection:bg-[#7aa2f7] selection:text-[#1a1b26] relative`}>
       <ParticleBackground />
-      
+
       <Navbar 
         scrolled={scrolled}
         isMenuOpen={mobileMenuOpen}
         onToggleMenu={() => setMobileMenuOpen(prev => !prev)} 
       />
-      
+
       {mobileMenuOpen && <MobileMenu onLinkClick={() => setMobileMenuOpen(false)} />}
-      
+
       <Hero />
-      
+
       <main>
         <Expertise />
         <FeaturedWork />
@@ -795,7 +801,7 @@ const Portfolio = () => {
         <CharacterStats />
         <ContactCTA />
       </main>
-      
+
       <Footer />
     </div>
   );
