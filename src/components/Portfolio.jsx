@@ -24,7 +24,8 @@ import {
   Coffee,
   Gamepad2,
   Music,
-  BookOpen
+  BookOpen,
+  Rocket
 } from 'lucide-react';
 
 // --- Global Constants ---
