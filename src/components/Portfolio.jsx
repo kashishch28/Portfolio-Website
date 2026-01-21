@@ -24,8 +24,7 @@ import {
   Coffee,
   Gamepad2,
   Music,
-  BookOpen,
-  Rocket
+  BookOpen
 } from 'lucide-react';
 
 // --- Global Constants ---
@@ -659,11 +658,7 @@ const JourneyTimeline = () => (
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">The Journey So Far</h2>
           <p className="text-[#a9b1d6]">From first line of code to deploying scalable applications.</p>
         </div>
-          <RevealOnScroll delay={100}><TimelineItem year="2026" title="Career Growth" description="Working on real-world projects, improving coding skills, and preparing for software development roles." icon={Rocket}  /></RevealOnScroll>
-          <RevealOnScroll delay={200}><TimelineItem year="2025" title="Full Stack Development" description="Building full-stack web applications and exploring basic AI integrations to improve project quality." icon={Cpu} /></RevealOnScroll> 
-          <RevealOnScroll delay={300}><TimelineItem year="2024" title="DSA & Problem Solving" description="Practicing Data Structures and Algorithms on LeetCode and GFG to strengthen logic and coding speed." icon={Award} /></RevealOnScroll>
-          <RevealOnScroll delay={400}><TimelineItem year="2023" title="Hello World" description="Started the programming journey with Java and Python. Built foundational projects and discovered a passion for problem solving." icon={GraduationCap} isLast={true} /></RevealOnScroll>
-      </div>
+          <RevealOnScroll delay={100}><TimelineItem year="2025" title="Full Stack & AI Integration" description="Developing complex applications like GreenMirror and AyurWell, focusing on integrating AI models with robust web architectures." icon={Cpu} /></RevealOnScroll> <RevealOnScroll delay={200}><TimelineItem year="2024" title="Algorithmic Mastery" description="Solved 500+ problems on LeetCode & GFG. Deep dive into Data Structures, Algorithms, and System Design patterns." icon={Award} /></RevealOnScroll> <RevealOnScroll delay={300}><TimelineItem year="2023" title="MERN Stack Specialist" description="Built multiple production-ready applications including EchoCart. Mastered React, Node.js, Express, and MongoDB ecosystem." icon={Briefcase} /></RevealOnScroll> <RevealOnScroll delay={400}><TimelineItem year="2023" title="Hello World" description="Started the programming journey with Java and Python. Built foundational projects and discovered a passion for problem solving." icon={GraduationCap} isLast={true} /></RevealOnScroll> </div>
     </div>
   </section>
 );
