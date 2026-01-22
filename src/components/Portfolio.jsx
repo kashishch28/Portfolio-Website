@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
+  Rocket,
   ArrowRight, 
   Layout, 
   Database, 
@@ -653,18 +654,19 @@ const TimelineItem = ({ year, title, description, icon: Icon, isLast }) => (
 const JourneyTimeline = () => (
   <section id="journey" className={`py-24 px-6 lg:px-8 ${colors.bgAlt} relative z-10`}>
     <div className="max-w-5xl mx-auto">
-
-
-
       <RevealOnScroll>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">The Journey So Far</h2>
           <p className="text-[#a9b1d6]">From first line of code to deploying scalable applications.</p>
         </div>
-
-
-
- </div>
+      </RevealOnScroll>
+      <div className="relative">
+         <RevealOnScroll delay={100}><TimelineItem year="2026" title="Career Growth & Advanced Projects" description="Working on industry-level projects, improving system design knowledge, and preparing for software development roles." icon={Rocket} /></RevealOnScroll>
+         <RevealOnScroll delay={200}><TimelineItem year="2025" title="Full Stack Development & AI Exploration" description="Building full-stack web applications, learning Design and Analysis of Algorithms (DAA), and exploring Machine Learning fundamentals to enhance project intelligence." icon={Cpu} /></RevealOnScroll>
+         <RevealOnScroll delay={300}><TimelineItem year="2025" title="DSA & Problem Solving Journey" description="Solved 500+ problems on LeetCode & GFG. Deep dive into Data Structures, Algorithms, and System Design patterns." icon={Award} /></RevealOnScroll>
+         <RevealOnScroll delay={400}><TimelineItem year="2024" title="Programming Foundations" description="Started programming with Java and Python. Built small projects and gained a strong understanding of programming fundamentals." icon={Briefcase} /></RevealOnScroll>
+         <RevealOnScroll delay={500}><TimelineItem year="2023" title="Hello World" description="Started the programming journey with Java and Python. Built foundational projects and discovered a passion for problem solving." icon={GraduationCap} isLast={true} /></RevealOnScroll>
+      </div>
     </div>
   </section>
 );
