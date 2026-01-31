@@ -58,6 +58,8 @@ This site can be deployed on Vercel, Netlify, or any static host that supports S
 - Build command: `npm run build`
 - Publish directory: `dist`
 
+Live demo: https://portfoliowebsitek.netlify.app
+
 ## Customization
 
 - Edit components inside `src/components` to change content.
