@@ -25,7 +25,9 @@ import {
   Coffee,
   Gamepad2,
   Music,
-  BookOpen
+  BookOpen,
+  User,
+  Sparkles
 } from 'lucide-react';
 
 // --- Global Constants ---
@@ -233,6 +235,7 @@ const Navbar = ({ scrolled, onToggleMenu, isMenuOpen }) => (
         KC<span className="text-[#7aa2f7]">.</span>
       </span>
       <div className="hidden md:flex items-center gap-8">
+        <NavLink href="#about">About</NavLink>
         <NavLink href="#work">Work</NavLink>
         <NavLink href="#profiles">Profiles</NavLink>
         <NavLink href="#journey">Journey</NavLink>
@@ -251,6 +254,7 @@ const Navbar = ({ scrolled, onToggleMenu, isMenuOpen }) => (
 const MobileMenu = ({ onLinkClick }) => (
   <div className="fixed inset-0 z-40 bg-[#1a1b26]/95 backdrop-blur-xl pt-24 px-6 md:hidden">
     <div className="flex flex-col gap-6 text-xl">
+      <NavLink href="#about" onClick={onLinkClick}>About</NavLink>
       <NavLink href="#work" onClick={onLinkClick}>Work</NavLink>
       <NavLink href="#profiles" onClick={onLinkClick}>Profiles</NavLink>
       <NavLink href="#journey" onClick={onLinkClick}>Journey</NavLink>
@@ -318,6 +322,74 @@ const Hero = () => (
       </RevealOnScroll>
     </div>
   </header>
+);
+
+const About = () => (
+  <section id="about" className="py-24 px-6 lg:px-8 relative z-10 bg-[#16161e]/50">
+    <div className="max-w-screen-2xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <RevealOnScroll>
+         <div className="relative group">
+            <div className="absolute -inset-4 bg-gradient-to-r from-[#7aa2f7] to-[#bb9af7] rounded-2xl opacity-20 blur-lg group-hover:opacity-40 transition duration-500"></div>
+            <div className="relative bg-[#1a1b26] border border-[#414868] p-8 rounded-2xl overflow-hidden hover:border-[#7aa2f7] transition-colors">
+               <div className="absolute top-0 right-0 w-32 h-32 bg-[#7aa2f7]/10 rounded-bl-full -mr-8 -mt-8 pointer-events-none"></div>
+               
+               {/* Updated Photo Section */}
+               <div className="flex flex-col items-center mb-6 relative z-10">
+                  <div className="w-32 h-32 rounded-full border-4 border-[#7aa2f7]/20 overflow-hidden mb-4 shadow-lg shadow-[#7aa2f7]/20 group-hover:scale-105 transition-transform duration-500 bg-[#24283b]">
+                    {/* Placeholder image - replace src with your actual photo URL */}
+                    <img 
+                      src="https://api.dicebear.com/9.x/avataaars/svg?seed=Kashish" 
+                      alt="Kashish Chaudhary" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Behind the Code</h3>
+               </div>
+
+               <p className="text-[#a9b1d6] mb-6 leading-relaxed">
+                 I'm Kashish, a Full Stack Developer based in India. My journey began with a simple curiosity about how websites work, which quickly evolved into a passion for building robust applications that live on the internet.
+               </p>
+               <p className="text-[#a9b1d6] leading-relaxed">
+                 I specialize in the <span className="text-[#7aa2f7] font-medium">MERN stack</span> and <span className="text-[#bb9af7] font-medium">Data Analytics</span>. When I'm not coding, you can find me solving algorithmic challenges or exploring the latest in AI technology. I believe in writing clean, maintainable code that solves real-world problems.
+               </p>
+            </div>
+         </div>
+      </RevealOnScroll>
+      <RevealOnScroll delay={200}>
+        <div className="space-y-8">
+           <div>
+             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+               Driven by <span className="text-[#7aa2f7]">Curiosity</span>,<br />
+               Powered by <span className="text-[#bb9af7]">Logic</span>.
+             </h2>
+             <p className="text-[#a9b1d6] text-lg">
+               I thrive in environments where technology meets creativity. Here's what defines my approach:
+             </p>
+           </div>
+           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="flex gap-4 group">
+                 <div className="w-12 h-12 bg-[#24283b] rounded-lg flex items-center justify-center flex-shrink-0 border border-[#414868] group-hover:border-[#7aa2f7] transition-colors">
+                    <Code2 className="text-[#7aa2f7]" size={24} />
+                 </div>
+                 <div>
+                    <h4 className="text-white font-bold mb-1">Clean Code</h4>
+                    <p className="text-[#565f89] text-sm">Writing scalable, readable, and efficient solutions.</p>
+                 </div>
+              </div>
+              <div className="flex gap-4 group">
+                 <div className="w-12 h-12 bg-[#24283b] rounded-lg flex items-center justify-center flex-shrink-0 border border-[#414868] group-hover:border-[#bb9af7] transition-colors">
+                    <Sparkles className="text-[#bb9af7]" size={24} />
+                 </div>
+                 <div>
+                    <h4 className="text-white font-bold mb-1">Problem Solving</h4>
+                    <p className="text-[#565f89] text-sm">Tackling complex DSA problems daily.</p>
+                 </div>
+              </div>
+           </div>
+        </div>
+      </RevealOnScroll>
+    </div>
+  </section>
 );
 
 const ServiceCard = ({ icon: Icon, title, description, tech }) => (
@@ -541,7 +613,7 @@ const InteractiveTerminal = () => {
     let response = { type: 'response', content: '' };
     switch(cmd) {
       case 'help':
-        response.content = 'Available commands: about, skills, projects, contact, clear, whoami';
+        response.content = 'Available commands: about, skills, projects, journey, contact, clear, whoami';
         break;
       case 'about':
         response.content = 'Full Stack Developer & Data Analyst passionate about building scalable web apps and solving complex algorithmic problems.';
@@ -552,11 +624,14 @@ const InteractiveTerminal = () => {
       case 'projects':
         response.content = 'Check out the "Work" section above to see AyurWell, EchoCart, and GreenMirror.';
         break;
+      case 'journey':
+        response.content = '2026: Career Growth | 2025: Full Stack & AI | 2024: DSA (500+ Problems) | 2023: Started Coding';
+        break;
       case 'contact':
         response.content = 'Email: kashishchaudhary586@gmail.com | LinkedIn: /in/kashish-chaudhary';
         break;
       case 'whoami':
-        response.content = 'root';
+        response.content = 'Kashish Chaudhary | Full Stack Developer | India';
         break;
       case 'clear':
         setOutput([]);
@@ -795,6 +870,7 @@ const Portfolio = () => {
       <Hero />
 
       <main>
+        <About />
         <Expertise />
         <FeaturedWork />
         <CodingProfiles />
