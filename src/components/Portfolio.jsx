@@ -336,9 +336,9 @@ const About = () => (
                {/* Updated Photo Section */}
                <div className="flex flex-col items-center mb-6 relative z-10">
                   <div className="w-32 h-32 rounded-full border-4 border-[#7aa2f7]/20 overflow-hidden mb-4 shadow-lg shadow-[#7aa2f7]/20 group-hover:scale-105 transition-transform duration-500 bg-[#24283b]">
-                    {/* Placeholder image - replace src with your actual photo URL */}
+                    {}
                     <img 
-                      src="https://api.dicebear.com/9.x/avataaars/svg?seed=Kashish" 
+                      src="asserts/profileP.jpeg" 
                       alt="Kashish Chaudhary" 
                       className="w-full h-full object-cover"
                     />
