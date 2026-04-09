@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
+import {
   Rocket,
-  ArrowRight, 
-  Layout, 
-  Database, 
-  BarChart3, 
-  Github, 
-  Linkedin, 
-  Mail, 
-  ExternalLink, 
+  ArrowRight,
+  Layout,
+  Database,
+  BarChart3,
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
   Menu,
   X,
   Code2,
@@ -25,7 +25,9 @@ import {
   Coffee,
   Gamepad2,
   Music,
-  BookOpen
+  BookOpen,
+  User,
+  Sparkles
 } from 'lucide-react';
 
 // --- Global Constants ---
@@ -140,18 +142,18 @@ const ParticleBackground = () => {
 
         // Draw connections to Mouse
         if (mouse.x != null) {
-            const dx = particles[i].x - mouse.x;
-            const dy = particles[i].y - mouse.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < 150) {
-                ctx.beginPath();
-                ctx.strokeStyle = particles[i].color;
-                ctx.globalAlpha = 0.2 * (1 - distance / 150);
-                ctx.lineWidth = 0.8;
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(mouse.x, mouse.y);
-                ctx.stroke();
-            }
+          const dx = particles[i].x - mouse.x;
+          const dy = particles[i].y - mouse.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.strokeStyle = particles[i].color;
+            ctx.globalAlpha = 0.2 * (1 - distance / 150);
+            ctx.lineWidth = 0.8;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.stroke();
+          }
         }
       }
       animationFrameId = requestAnimationFrame(animate);
@@ -216,8 +218,8 @@ const RevealOnScroll = ({ children, delay = 0 }) => {
 // --- Navigation Components ---
 
 const NavLink = ({ href, children, onClick }) => (
-  <a 
-    href={href} 
+  <a
+    href={href}
     onClick={onClick}
     className="text-base font-medium text-[#a9b1d6] hover:text-[#7aa2f7] transition-colors tracking-wide relative group"
   >
@@ -229,10 +231,11 @@ const NavLink = ({ href, children, onClick }) => (
 const Navbar = ({ scrolled, onToggleMenu, isMenuOpen }) => (
   <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#1a1b26]/90 backdrop-blur-lg border-b border-[#414868]' : 'bg-transparent py-6'}`}>
     <div className="max-w-screen-2xl mx-auto px-6 lg:px-8 flex justify-between items-center h-16">
-      <span className="text-2xl font-bold text-white tracking-tighter cursor-pointer" onClick={() => window.scrollTo(0,0)}>
+      <span className="text-2xl font-bold text-white tracking-tighter cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
         KC<span className="text-[#7aa2f7]">.</span>
       </span>
       <div className="hidden md:flex items-center gap-8">
+        <NavLink href="#about">About</NavLink>
         <NavLink href="#work">Work</NavLink>
         <NavLink href="#profiles">Profiles</NavLink>
         <NavLink href="#journey">Journey</NavLink>
@@ -251,6 +254,7 @@ const Navbar = ({ scrolled, onToggleMenu, isMenuOpen }) => (
 const MobileMenu = ({ onLinkClick }) => (
   <div className="fixed inset-0 z-40 bg-[#1a1b26]/95 backdrop-blur-xl pt-24 px-6 md:hidden">
     <div className="flex flex-col gap-6 text-xl">
+      <NavLink href="#about" onClick={onLinkClick}>About</NavLink>
       <NavLink href="#work" onClick={onLinkClick}>Work</NavLink>
       <NavLink href="#profiles" onClick={onLinkClick}>Profiles</NavLink>
       <NavLink href="#journey" onClick={onLinkClick}>Journey</NavLink>
@@ -296,28 +300,96 @@ const Hero = () => (
       </RevealOnScroll>
       <RevealOnScroll delay={300}>
         <div className="relative hidden md:block">
-           <div className="absolute inset-0 bg-gradient-to-r from-[#7aa2f7] to-[#bb9af7] blur-2xl opacity-20 rounded-full"></div>
-           <div className="relative bg-[#16161e]/90 backdrop-blur-xl border border-[#414868] rounded-2xl p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 hover:scale-105 cursor-default">
-              <div className="flex items-center gap-2 mb-4 border-b border-[#414868] pb-4">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-[#f7768e]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#e0af68]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#9ece6a]"></div>
-                </div>
-                <span className="text-xs text-[#565f89] font-mono ml-2">developer.tsx</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#7aa2f7] to-[#bb9af7] blur-2xl opacity-20 rounded-full"></div>
+          <div className="relative bg-[#16161e]/90 backdrop-blur-xl border border-[#414868] rounded-2xl p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 hover:scale-105 cursor-default">
+            <div className="flex items-center gap-2 mb-4 border-b border-[#414868] pb-4">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-[#f7768e]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#e0af68]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#9ece6a]"></div>
               </div>
-              <div className="space-y-3 font-mono text-sm">
-                <div className="flex"><span className="text-[#7aa2f7] w-8">1</span><span className="text-[#bb9af7]">const</span> <span className="text-[#e0af68]">developer</span> = <span className="text-[#7dcfff]">{`{`}</span></div>
-                <div className="flex"><span className="text-[#7aa2f7] w-8">2</span><span className="text-[#7aa2f7] ml-4">name:</span> <span className="text-[#9ece6a]">'Kashish'</span>,</div>
-                <div className="flex"><span className="text-[#7aa2f7] w-8">3</span><span className="text-[#7aa2f7] ml-4">skills:</span> <span className="text-[#bb9af7]">[</span><span className="text-[#9ece6a]">'React'</span>, <span className="text-[#9ece6a]">'Node'</span>, <span className="text-[#9ece6a]">'AI'</span><span className="text-[#bb9af7]">]</span>,</div>
-                <div className="flex"><span className="text-[#7aa2f7] w-8">4</span><span className="text-[#7aa2f7] ml-4">status:</span> <span className="text-[#9ece6a]">'Building Cool Stuff'</span></div>
-                <div className="flex"><span className="text-[#7aa2f7] w-8">5</span><span className="text-[#7dcfff]">{`}`}</span>;</div>
-              </div>
-           </div>
+              <span className="text-xs text-[#565f89] font-mono ml-2">developer.tsx</span>
+            </div>
+            <div className="space-y-3 font-mono text-sm">
+              <div className="flex"><span className="text-[#7aa2f7] w-8">1</span><span className="text-[#bb9af7]">const</span> <span className="text-[#e0af68]">developer</span> = <span className="text-[#7dcfff]">{`{`}</span></div>
+              <div className="flex"><span className="text-[#7aa2f7] w-8">2</span><span className="text-[#7aa2f7] ml-4">name:</span> <span className="text-[#9ece6a]">'Kashish'</span>,</div>
+              <div className="flex"><span className="text-[#7aa2f7] w-8">3</span><span className="text-[#7aa2f7] ml-4">skills:</span> <span className="text-[#bb9af7]">[</span><span className="text-[#9ece6a]">'React'</span>, <span className="text-[#9ece6a]">'Node'</span>, <span className="text-[#9ece6a]">'AI'</span><span className="text-[#bb9af7]">]</span>,</div>
+              <div className="flex"><span className="text-[#7aa2f7] w-8">4</span><span className="text-[#7aa2f7] ml-4">status:</span> <span className="text-[#9ece6a]">'Building Cool Stuff'</span></div>
+              <div className="flex"><span className="text-[#7aa2f7] w-8">5</span><span className="text-[#7dcfff]">{`}`}</span>;</div>
+            </div>
+          </div>
         </div>
       </RevealOnScroll>
     </div>
   </header>
+);
+
+const About = () => (
+  <section id="about" className="py-24 px-6 lg:px-8 relative z-10 bg-[#16161e]/50">
+    <div className="max-w-screen-2xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <RevealOnScroll>
+        <div className="relative group">
+          <div className="absolute -inset-4 bg-gradient-to-r from-[#7aa2f7] to-[#bb9af7] rounded-2xl opacity-20 blur-lg group-hover:opacity-40 transition duration-500"></div>
+          <div className="relative bg-[#1a1b26] border border-[#414868] p-8 rounded-2xl overflow-hidden hover:border-[#7aa2f7] transition-colors">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#7aa2f7]/10 rounded-bl-full -mr-8 -mt-8 pointer-events-none"></div>
+
+            {/* Updated Photo Section */}
+            <div className="flex flex-col items-center mb-6 relative z-10">
+              <div className="w-32 h-32 rounded-full border-4 border-[#7aa2f7]/20 overflow-hidden mb-4 shadow-lg shadow-[#7aa2f7]/20 group-hover:scale-105 transition-transform duration-500 bg-[#24283b]">
+                { }
+                <img
+                  src="./assets/profileP.jpeg"
+                  alt="Kashish Chaudhary"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-white">Behind the Code</h3>
+            </div>
+
+            <p className="text-[#a9b1d6] mb-6 leading-relaxed">
+              I'm Kashish, a Full Stack Developer based in India. My journey began with a simple curiosity about how websites work, which quickly evolved into a passion for building robust applications that live on the internet.
+            </p>
+            <p className="text-[#a9b1d6] leading-relaxed">
+              I specialize in the <span className="text-[#7aa2f7] font-medium">MERN stack</span> and <span className="text-[#bb9af7] font-medium">Data Analytics</span>. When I'm not coding, you can find me solving algorithmic challenges or exploring the latest in AI technology. I believe in writing clean, maintainable code that solves real-world problems.
+            </p>
+          </div>
+        </div>
+      </RevealOnScroll>
+      <RevealOnScroll delay={200}>
+        <div className="space-y-8">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Driven by <span className="text-[#7aa2f7]">Curiosity</span>,<br />
+              Powered by <span className="text-[#bb9af7]">Logic</span>.
+            </h2>
+            <p className="text-[#a9b1d6] text-lg">
+              I thrive in environments where technology meets creativity. Here's what defines my approach:
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="flex gap-4 group">
+              <div className="w-12 h-12 bg-[#24283b] rounded-lg flex items-center justify-center flex-shrink-0 border border-[#414868] group-hover:border-[#7aa2f7] transition-colors">
+                <Code2 className="text-[#7aa2f7]" size={24} />
+              </div>
+              <div>
+                <h4 className="text-white font-bold mb-1">Clean Code</h4>
+                <p className="text-[#565f89] text-sm">Writing scalable, readable, and efficient solutions.</p>
+              </div>
+            </div>
+            <div className="flex gap-4 group">
+              <div className="w-12 h-12 bg-[#24283b] rounded-lg flex items-center justify-center flex-shrink-0 border border-[#414868] group-hover:border-[#bb9af7] transition-colors">
+                <Sparkles className="text-[#bb9af7]" size={24} />
+              </div>
+              <div>
+                <h4 className="text-white font-bold mb-1">Problem Solving</h4>
+                <p className="text-[#565f89] text-sm">Tackling complex DSA problems daily.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </RevealOnScroll>
+    </div>
+  </section>
 );
 
 const ServiceCard = ({ icon: Icon, title, description, tech }) => (
@@ -349,7 +421,7 @@ const Expertise = () => (
       </RevealOnScroll>
       <div className="grid md:grid-cols-3 gap-8">
         <RevealOnScroll delay={100}>
-          <ServiceCard 
+          <ServiceCard
             icon={Layout}
             title="Frontend Architecture"
             description="Building responsive, pixel-perfect web applications with a focus on performance and accessibility."
@@ -357,7 +429,7 @@ const Expertise = () => (
           />
         </RevealOnScroll>
         <RevealOnScroll delay={200}>
-          <ServiceCard 
+          <ServiceCard
             icon={Database}
             title="Backend Engineering"
             description="Designing robust APIs and database schemas that scale securely and efficiently."
@@ -365,7 +437,7 @@ const Expertise = () => (
           />
         </RevealOnScroll>
         <RevealOnScroll delay={300}>
-          <ServiceCard 
+          <ServiceCard
             icon={BarChart3}
             title="Data Analytics & AI"
             description="Transforming raw data into actionable insights and integrating AI solutions into web flows."
@@ -424,7 +496,7 @@ const FeaturedWork = () => (
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {[
           { title: "AyurWell", category: "HealthTech", description: "A holistic wellness platform combining Ayurveda with modern technology using React and Node.js.", tags: ['Full Stack', 'Healthcare'], color: "green-500" },
-          { title: "ResoNote", category: "Web App", description: "A unique digital space blending daily journaling with mood-based music recommendations via Spotify API.", tags: ['React', 'Spotify API', 'Node'], color: "pink-500" },
+          { title: "Syncora", category: "Web App", description: "A unique digital space blending daily journaling with mood-based music recommendations via Spotify API.", tags: ['React', 'Spotify API', 'Node'], color: "pink-500" },
           // { title: "EchoCart", category: "E-Commerce", description: "High-performance shopping solution with real-time analytics, inventory management, and Stripe integration.", tags: ['MERN', 'FinTech'], color: "blue-500" },
           // { title: "UrbanPulse", category: "Data Analytics", description: "Traffic pattern visualization and predictive modeling for smart city infrastructure using historical sensor data.", tags: ['Python', 'Pandas', 'Tableau'], color: "orange-500" },
           // { title: "MarketMinds", category: "Data Science", description: "Customer segmentation and sales forecasting dashboard utilizing machine learning algorithms for retail growth.", tags: ['Python', 'Scikit-Learn', 'NLP'], color: "indigo-500" }
@@ -435,9 +507,9 @@ const FeaturedWork = () => (
         ))}
       </div>
       <div className="mt-12 text-center md:hidden">
-         <a href="https://github.com/kashishch28" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[#7aa2f7] font-medium">
-           View all on Github <ArrowRight size={18} />
-         </a>
+        <a href="https://github.com/kashishch28" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[#7aa2f7] font-medium">
+          View all on Github <ArrowRight size={18} />
+        </a>
       </div>
     </div>
   </section>
@@ -521,11 +593,13 @@ const InteractiveTerminal = () => {
     { type: 'system', content: '(c) 2025 Kashish Chaudhary. All rights reserved.' },
     { type: 'info', content: 'Type "help" to see available commands.' }
   ]);
-  const terminalEndRef = useRef(null);
+  const terminalContainerRef = useRef(null);
   const inputRef = useRef(null);
 
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (terminalContainerRef.current) {
+      terminalContainerRef.current.scrollTop = terminalContainerRef.current.scrollHeight;
+    }
   }, [output]);
 
   // Auto-focus input on load
@@ -539,9 +613,9 @@ const InteractiveTerminal = () => {
     if (!cmd) return;
     const newOutput = [...output, { type: 'command', content: `visitor@portfolio:~$ ${input}` }];
     let response = { type: 'response', content: '' };
-    switch(cmd) {
+    switch (cmd) {
       case 'help':
-        response.content = 'Available commands: about, skills, projects, contact, clear, whoami';
+        response.content = 'Available commands: about, skills, projects, journey, contact, clear, whoami';
         break;
       case 'about':
         response.content = 'Full Stack Developer & Data Analyst passionate about building scalable web apps and solving complex algorithmic problems.';
@@ -552,11 +626,14 @@ const InteractiveTerminal = () => {
       case 'projects':
         response.content = 'Check out the "Work" section above to see AyurWell, EchoCart, and GreenMirror.';
         break;
+      case 'journey':
+        response.content = '2026: Career Growth | 2025: Full Stack & AI | 2024: DSA (500+ Problems) | 2023: Started Coding';
+        break;
       case 'contact':
         response.content = 'Email: kashishchaudhary586@gmail.com | LinkedIn: /in/kashish-chaudhary';
         break;
       case 'whoami':
-        response.content = 'root';
+        response.content = 'Kashish Chaudhary | Full Stack Developer | India';
         break;
       case 'clear':
         setOutput([]);
@@ -575,46 +652,45 @@ const InteractiveTerminal = () => {
   return (
     <section id="terminal" className="py-24 px-6 lg:px-8 relative overflow-hidden z-10">
       <div className="max-w-5xl mx-auto">
-         <RevealOnScroll>
-           <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold text-white mb-4">System Access</h2>
-              <p className="text-[#a9b1d6]">A touch of nostalgia. Interact with the portfolio via command line.</p>
-           </div>
-           <div className="rounded-xl overflow-hidden bg-[#0f0f14]/90 backdrop-blur border border-[#414868] shadow-2xl font-mono text-sm md:text-base relative z-10">
-              <div className="bg-[#1a1b26] px-4 py-2 flex items-center justify-between border-b border-[#414868]">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#f7768e]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#e0af68]"></div>
-                  <div className="w-3 h-3 rounded-full bg-[#9ece6a]"></div>
+        <RevealOnScroll>
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">System Access</h2>
+            <p className="text-[#a9b1d6]">A touch of nostalgia. Interact with the portfolio via command line.</p>
+          </div>
+          <div className="rounded-xl overflow-hidden bg-[#0f0f14]/90 backdrop-blur border border-[#414868] shadow-2xl font-mono text-sm md:text-base relative z-10">
+            <div className="bg-[#1a1b26] px-4 py-2 flex items-center justify-between border-b border-[#414868]">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-[#f7768e]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#e0af68]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#9ece6a]"></div>
+              </div>
+              <div className="text-[#565f89] text-xs flex items-center gap-1"><Terminal size={12} /> visitor@kashish-portfolio:~</div>
+              <div className="flex gap-2 text-[#565f89]"><Minus size={14} /><Maximize2 size={14} /><X size={14} /></div>
+            </div>
+            <div ref={terminalContainerRef} className="p-6 h-96 overflow-y-auto space-y-2 custom-scrollbar" onClick={() => inputRef.current?.focus()}>
+              {output.map((line, index) => (
+                <div key={index} className={`${line.type === 'command' ? 'text-[#c0caf5] mt-4' : line.type === 'system' ? 'text-[#565f89]' : 'text-[#9ece6a]'}`}>
+                  {line.content}
                 </div>
-                <div className="text-[#565f89] text-xs flex items-center gap-1"><Terminal size={12} /> visitor@kashish-portfolio:~</div>
-                <div className="flex gap-2 text-[#565f89]"><Minus size={14} /><Maximize2 size={14} /><X size={14} /></div>
+              ))}
+              <div className="flex items-center gap-2 text-[#c0caf5] mt-2">
+                <span className="text-[#7aa2f7]">visitor@portfolio:~$</span>
+                <form onSubmit={handleCommand} className="flex-1">
+                  <input
+                    id="terminal-input"
+                    ref={inputRef}
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    className="bg-transparent border-none outline-none text-[#c0caf5] w-full"
+                    autoComplete="off"
+                  />
+                </form>
               </div>
-              <div className="p-6 h-96 overflow-y-auto space-y-2 custom-scrollbar" onClick={() => inputRef.current?.focus()}>
-                 {output.map((line, index) => (
-                   <div key={index} className={`${line.type === 'command' ? 'text-[#c0caf5] mt-4' : line.type === 'system' ? 'text-[#565f89]' : 'text-[#9ece6a]'}`}>
-                     {line.content}
-                   </div>
-                 ))}
-                 <div className="flex items-center gap-2 text-[#c0caf5] mt-2">
-                    <span className="text-[#7aa2f7]">visitor@portfolio:~$</span>
-                    <form onSubmit={handleCommand} className="flex-1">
-                      <input 
-                        id="terminal-input"
-                        ref={inputRef}
-                        type="text" 
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        className="bg-transparent border-none outline-none text-[#c0caf5] w-full"
-                        autoComplete="off"
-                      />
-                    </form>
-                 </div>
-                 <div ref={terminalEndRef} />
-              </div>
-           </div>
-         </RevealOnScroll>
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-64 bg-[#7aa2f7]/10 blur-[100px] -z-10 pointer-events-none"></div>
+            </div>
+          </div>
+        </RevealOnScroll>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-64 bg-[#7aa2f7]/10 blur-[100px] -z-10 pointer-events-none"></div>
       </div>
     </section>
   );
@@ -635,7 +711,7 @@ const TimelineItem = ({ year, title, description, icon: Icon, isLast }) => (
         {!isLast && <div className="absolute top-12 bottom-[-4rem] w-0.5 bg-[#414868] group-hover:bg-[#7aa2f7]/50 transition-colors"></div>}
       </div>
       <div className="w-5/12 pl-8">
-         <span className="text-3xl font-bold text-[#24283b] group-hover:text-[#414868] transition-colors select-none">{year}</span>
+        <span className="text-3xl font-bold text-[#24283b] group-hover:text-[#414868] transition-colors select-none">{year}</span>
       </div>
     </div>
     {/* Mobile Layout */}
@@ -661,11 +737,11 @@ const JourneyTimeline = () => (
         </div>
       </RevealOnScroll>
       <div className="relative">
-         <RevealOnScroll delay={100}><TimelineItem year="2026" title="Career Growth & Advanced Projects" description="Working on industry-level projects, improving system design knowledge, and preparing for software development roles." icon={Rocket} /></RevealOnScroll>
-         <RevealOnScroll delay={200}><TimelineItem year="2025" title="Full Stack Development & AI Exploration" description="Building full-stack web applications, learning Design and Analysis of Algorithms (DAA), and exploring Machine Learning fundamentals to enhance project intelligence." icon={Cpu} /></RevealOnScroll>
-         <RevealOnScroll delay={300}><TimelineItem year="2025" title="DSA & Problem Solving Journey" description="Solved 500+ problems on LeetCode & GFG. Deep dive into Data Structures, Algorithms, and System Design patterns." icon={Award} /></RevealOnScroll>
-         <RevealOnScroll delay={400}><TimelineItem year="2024" title="Programming Foundations" description="Started programming with Java and Python. Built small projects and gained a strong understanding of programming fundamentals." icon={Briefcase} /></RevealOnScroll>
-         <RevealOnScroll delay={500}><TimelineItem year="2023" title="Hello World" description="Started the programming journey with Java and Python. Built foundational projects and discovered a passion for problem solving." icon={GraduationCap} isLast={true} /></RevealOnScroll>
+        <RevealOnScroll delay={100}><TimelineItem year="2026" title="Career Growth & Advanced Projects" description="Working on industry-level projects, improving system design knowledge, and preparing for software development roles." icon={Rocket} /></RevealOnScroll>
+        <RevealOnScroll delay={200}><TimelineItem year="2025" title="Full Stack Development & AI Exploration" description="Building full-stack web applications, learning Design and Analysis of Algorithms (DAA), and exploring Machine Learning fundamentals to enhance project intelligence." icon={Cpu} /></RevealOnScroll>
+        <RevealOnScroll delay={300}><TimelineItem year="2025" title="DSA & Problem Solving Journey" description="Solved 500+ problems on LeetCode & GFG. Deep dive into Data Structures, Algorithms, and System Design patterns." icon={Award} /></RevealOnScroll>
+        <RevealOnScroll delay={400}><TimelineItem year="2024" title="Programming Foundations" description="Started programming with Java and Python. Built small projects and gained a strong understanding of programming fundamentals." icon={Briefcase} /></RevealOnScroll>
+        <RevealOnScroll delay={500}><TimelineItem year="2023" title="Hello World" description="Started the programming journey with Java and Python. Built foundational projects and discovered a passion for problem solving." icon={GraduationCap} isLast={true} /></RevealOnScroll>
       </div>
     </div>
   </section>
@@ -678,8 +754,8 @@ const StatBar = ({ label, value, color }) => (
       <span className="text-white font-bold">{value}%</span>
     </div>
     <div className="h-2 bg-[#16161e] rounded-full overflow-hidden border border-[#414868]">
-      <div 
-        className={`h-full ${color} transition-all duration-1000 ease-out`} 
+      <div
+        className={`h-full ${color} transition-all duration-1000 ease-out`}
         style={{ width: `${value}%` }}
       ></div>
     </div>
@@ -692,40 +768,40 @@ const CharacterStats = () => (
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <RevealOnScroll>
           <div>
-             <h2 className="text-3xl font-bold text-white mb-8">Character Stats</h2>
-             <div className="space-y-6 bg-[#1a1b26]/80 backdrop-blur p-8 rounded-2xl border border-[#414868] shadow-xl">
-                <StatBar label="Frontend Magic" value={90} color="bg-[#7aa2f7]" />
-                <StatBar label="Backend Logic" value={85} color="bg-[#bb9af7]" />
-                <StatBar label="Data Analytics" value={80} color="bg-[#9ece6a]" />
-                <StatBar label="Coffee Consumption" value={100} color="bg-[#f7768e]" />
-             </div>
+            <h2 className="text-3xl font-bold text-white mb-8">Character Stats</h2>
+            <div className="space-y-6 bg-[#1a1b26]/80 backdrop-blur p-8 rounded-2xl border border-[#414868] shadow-xl">
+              <StatBar label="Frontend Magic" value={90} color="bg-[#7aa2f7]" />
+              <StatBar label="Backend Logic" value={85} color="bg-[#bb9af7]" />
+              <StatBar label="Data Analytics" value={80} color="bg-[#9ece6a]" />
+              <StatBar label="Coffee Consumption" value={100} color="bg-[#f7768e]" />
+            </div>
           </div>
         </RevealOnScroll>
         <RevealOnScroll delay={200}>
           <div>
-             <h2 className="text-3xl font-bold text-white mb-8">AFK Activities</h2>
-             <div className="grid grid-cols-2 gap-4">
-                <div className="p-6 bg-[#24283b] rounded-xl border border-[#414868] hover:border-[#7aa2f7] transition-colors group hover:-translate-y-1 duration-300">
-                   <Gamepad2 className="text-[#7aa2f7] mb-4 group-hover:scale-110 transition-transform" size={32} />
-                   <h3 className="text-white font-bold mb-1">Gaming</h3>
-                   <p className="text-sm text-[#565f89]">FPS & Strategy</p>
-                </div>
-                <div className="p-6 bg-[#24283b] rounded-xl border border-[#414868] hover:border-[#bb9af7] transition-colors group hover:-translate-y-1 duration-300">
-                   <BookOpen className="text-[#bb9af7] mb-4 group-hover:scale-110 transition-transform" size={32} />
-                   <h3 className="text-white font-bold mb-1">Reading</h3>
-                   <p className="text-sm text-[#565f89]">Sci-Fi & Tech</p>
-                </div>
-                <div className="p-6 bg-[#24283b] rounded-xl border border-[#414868] hover:border-[#9ece6a] transition-colors group hover:-translate-y-1 duration-300">
-                   <Music className="text-[#9ece6a] mb-4 group-hover:scale-110 transition-transform" size={32} />
-                   <h3 className="text-white font-bold mb-1">Music</h3>
-                   <p className="text-sm text-[#565f89]">Lo-Fi Coding</p>
-                </div>
-                <div className="p-6 bg-[#24283b] rounded-xl border border-[#414868] hover:border-[#e0af68] transition-colors group hover:-translate-y-1 duration-300">
-                   <Coffee className="text-[#e0af68] mb-4 group-hover:scale-110 transition-transform" size={32} />
-                   <h3 className="text-white font-bold mb-1">Coffee</h3>
-                   <p className="text-sm text-[#565f89]">Fuel for Code</p>
-                </div>
-             </div>
+            <h2 className="text-3xl font-bold text-white mb-8">AFK Activities</h2>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-6 bg-[#24283b] rounded-xl border border-[#414868] hover:border-[#7aa2f7] transition-colors group hover:-translate-y-1 duration-300">
+                <Gamepad2 className="text-[#7aa2f7] mb-4 group-hover:scale-110 transition-transform" size={32} />
+                <h3 className="text-white font-bold mb-1">Gaming</h3>
+                <p className="text-sm text-[#565f89]">FPS & Strategy</p>
+              </div>
+              <div className="p-6 bg-[#24283b] rounded-xl border border-[#414868] hover:border-[#bb9af7] transition-colors group hover:-translate-y-1 duration-300">
+                <BookOpen className="text-[#bb9af7] mb-4 group-hover:scale-110 transition-transform" size={32} />
+                <h3 className="text-white font-bold mb-1">Reading</h3>
+                <p className="text-sm text-[#565f89]">Sci-Fi & Tech</p>
+              </div>
+              <div className="p-6 bg-[#24283b] rounded-xl border border-[#414868] hover:border-[#9ece6a] transition-colors group hover:-translate-y-1 duration-300">
+                <Music className="text-[#9ece6a] mb-4 group-hover:scale-110 transition-transform" size={32} />
+                <h3 className="text-white font-bold mb-1">Music</h3>
+                <p className="text-sm text-[#565f89]">Lo-Fi Coding</p>
+              </div>
+              <div className="p-6 bg-[#24283b] rounded-xl border border-[#414868] hover:border-[#e0af68] transition-colors group hover:-translate-y-1 duration-300">
+                <Coffee className="text-[#e0af68] mb-4 group-hover:scale-110 transition-transform" size={32} />
+                <h3 className="text-white font-bold mb-1">Coffee</h3>
+                <p className="text-sm text-[#565f89]">Fuel for Code</p>
+              </div>
+            </div>
           </div>
         </RevealOnScroll>
       </div>
@@ -739,7 +815,7 @@ const ContactCTA = () => (
       <RevealOnScroll>
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Ready to start a project?</h2>
         <p className="text-xl text-[#a9b1d6] mb-12 max-w-2xl mx-auto">
-          I'm currently available for freelance work and full-time positions. 
+          I'm currently available for freelance work and full-time positions.
           Let's build something amazing together.
         </p>
         <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
@@ -784,10 +860,10 @@ const Portfolio = () => {
     <div className={`${colors.bg} min-h-screen font-sans selection:bg-[#7aa2f7] selection:text-[#1a1b26] relative`}>
       <ParticleBackground />
 
-      <Navbar 
+      <Navbar
         scrolled={scrolled}
         isMenuOpen={mobileMenuOpen}
-        onToggleMenu={() => setMobileMenuOpen(prev => !prev)} 
+        onToggleMenu={() => setMobileMenuOpen(prev => !prev)}
       />
 
       {mobileMenuOpen && <MobileMenu onLinkClick={() => setMobileMenuOpen(false)} />}
@@ -795,6 +871,7 @@ const Portfolio = () => {
       <Hero />
 
       <main>
+        <About />
         <Expertise />
         <FeaturedWork />
         <CodingProfiles />
