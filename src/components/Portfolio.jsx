@@ -562,7 +562,7 @@ const CodingProfiles = () => (
               <div className="w-8 h-8 rounded-full bg-[#9ece6a] border-2 border-[#1a1b26]"></div>
             </div>
             <div className="text-sm">
-              <p className="text-white font-bold">500+ Problems</p>
+              <p className="text-white font-bold">600+ Problems</p>
               <p className="text-[#565f89]">Solved across platforms</p>
             </div>
           </div>
@@ -570,16 +570,16 @@ const CodingProfiles = () => (
       </RevealOnScroll>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         <RevealOnScroll delay={100}>
-          <ProfileCard platform="LeetCode" handle="kashish_ch1" url="https://leetcode.com/u/kashish_ch1/" icon={Code2} brandColor="#e0af68" stats={[{ label: "Problems Solved", value: "500+" }, { label: "Global Rank", value: "Top 25%" }]} />
+          <ProfileCard platform="LeetCode" handle="kashish_ch1" url="https://leetcode.com/u/kashish_ch1/" icon={Code2} brandColor="#e0af68" stats={[{ label: "Problems Solved", value: "650+" }, { label: "Global Rank", value: "Top 25%" }]} />
         </RevealOnScroll>
         <RevealOnScroll delay={200}>
           <ProfileCard platform="GeeksForGeeks" handle="kashishchauq2zq" url="https://auth.geeksforgeeks.org/user/kkashishchauq2zq/" icon={Terminal} brandColor="#9ece6a" stats={[{ label: "Coding Score", value: "1200+" }, { label: "Institute Rank", value: "#12" }]} />
         </RevealOnScroll>
         <RevealOnScroll delay={300}>
-          <ProfileCard platform="GitHub" handle="kashishch28" url="https://github.com/kashishch28" icon={Github} brandColor="#bb9af7" stats={[{ label: "Repositories", value: "25+" }, { label: "Contributions", value: "300+" }]} />
-        </RevealOnScroll>
+          <ProfileCard platform="GitHub" handle="kashishch28" url="https://github.com/kashishch28" icon={Github} brandColor="#bb9af7" stats={[{ label: "Repositories", value: "30+" }, { label: "Contributions", value: "300+" }]} />
+        </RevealOnScroll> 
         <RevealOnScroll delay={400}>
-          <ProfileCard platform="LinkedIn" handle="Kashish Chaudhary" url="https://linkedin.com/in/kashish-chaudhary-286aa1290/" icon={Linkedin} brandColor="#0077b5" stats={[{ label: "Connections", value: "400+" }, { label: "Followers", value: "550+" }]} />
+          <ProfileCard platform="LinkedIn" handle="Kashish Chaudhary" url="https://linkedin.com/in/kashish-chaudhary-286aa1290/" icon={Linkedin} brandColor="#0077b5" stats={[{ label: "Connections", value: "400+" }, { label: "Followers", value: "1000+" }]} />
         </RevealOnScroll>
       </div>
     </div>
