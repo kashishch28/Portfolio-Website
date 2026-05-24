@@ -495,11 +495,11 @@ const FeaturedWork = () => (
       </RevealOnScroll>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {[
-          { title: "AyurWell", category: "HealthTech", description: "A holistic wellness platform combining Ayurveda with modern technology using React and Node.js.", tags: ['Full Stack', 'Healthcare'], color: "green-500", link:"https://github.com/kashishch28/Syncora__" },
-          { title: "Syncora", category: "Web App", description: "A unique digital space blending daily journaling with mood-based music recommendations via Spotify API.", tags: ['React', 'Spotify API', 'Node'], color: "pink-500" },
+          { title: "AyurWell", category: "HealthTech", description: "A holistic wellness platform combining Ayurveda with modern technology using React and Node.js.", tags: ['Full Stack', 'Healthcare'], color: "green-500",  },
+          { title: "Syncora", category: "Web App", description: "A unique digital space blending daily journaling with mood-based music recommendations via Spotify API.", tags: ['React', 'Spotify API', 'Node'], color: "pink-500" ,link:"https://github.com/kashishch28/SYNCORA_"},
           // { title: "EchoCart", category: "E-Commerce", description: "High-performance shopping solution with real-time analytics, inventory management, and Stripe integration.", tags: ['MERN', 'FinTech'], color: "blue-500" },
           // { title: "UrbanPulse", category: "Data Analytics", description: "Traffic pattern visualization and predictive modeling for smart city infrastructure using historical sensor data.", tags: ['Python', 'Pandas', 'Tableau'], color: "orange-500" },
-          // { title: "MarketMinds", category: "Data Science", description: "Customer segmentation and sales forecasting dashboard utilizing machine learning algorithms for retail growth.", tags: ['Python', 'Scikit-Learn', 'NLP'], color: "indigo-500" }
+          { title: "Mental Health Survey", category: "Data Analytics", description: "Analyzed tech workplace mental health trends using data visualization, cleaning, and predictive machine learning techniques.", tags: ['Python', 'Scikit-Learn', 'NLP'], color: "indigo-500" ,link:"https://github.com/kashishch28/DA-Projects"}
         ].map((project, index) => (
           <RevealOnScroll key={index} delay={index * 100}>
             <ProjectShowcase {...project} />
