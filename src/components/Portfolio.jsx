@@ -337,11 +337,13 @@ const About = () => (
             <div className="flex flex-col items-center mb-6 relative z-10">
               <div className="w-32 h-32 rounded-full border-4 border-[#7aa2f7]/20 overflow-hidden mb-4 shadow-lg shadow-[#7aa2f7]/20 group-hover:scale-105 transition-transform duration-500 bg-[#24283b]">
                 { }
-                <img
+                <img src="/assets/profileP.jpeg" alt="Kashish" 
+                onError={(e) => { e.target.style.display='none'; }} />
+                {/* <img
                   src="/assets/profileP.jpeg"
                   alt="Kashish Chaudhary"
                   className="w-full h-full object-cover"
-                />
+                /> */}
               </div>
               <h3 className="text-2xl font-bold text-white">Behind the Code</h3>
             </div>
