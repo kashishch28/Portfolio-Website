@@ -462,9 +462,9 @@ const ProjectShowcase = ({ title, category, description, tags, color }) => (
           <span className="text-[#bb9af7] text-xs font-bold tracking-wider uppercase mb-2 block">{category}</span>
           <h3 className="text-2xl font-bold text-white group-hover:text-[#7aa2f7] transition-colors">{title}</h3>
         </div>
-        <a href="#" className="p-2 bg-[#7aa2f7] text-[#1a1b26] rounded-full hover:bg-white transition-colors transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-300">
-          <ExternalLink size={20} />
-        </a>
+        <div className="p-2 bg-[#7aa2f7] text-[#1a1b26] rounded-full hover:bg-white transition-colors transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-300">
+  <ExternalLink size={20} />
+        </div>
       </div>
       <p className="text-[#a9b1d6] mb-6 line-clamp-2">{description}</p>
       <div className="flex gap-3 text-sm text-[#565f89]">
