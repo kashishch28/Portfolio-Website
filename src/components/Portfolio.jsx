@@ -449,25 +449,59 @@ const Expertise = () => (
   </section>
 );
 
-const ProjectShowcase = ({ title, category, description, tags, color }) => (
+const ProjectShowcase = ({
+  title,
+  category,
+  description,
+  tags,
+  color,
+  link,
+}) => (
   <div className="group relative rounded-2xl overflow-hidden bg-[#16161e] border border-[#414868] hover:border-[#bb9af7] transition-all duration-500 hover:shadow-2xl hover:shadow-[#bb9af7]/10">
+
     <div className="absolute inset-0 bg-gradient-to-t from-[#1a1b26] via-[#1a1b26]/80 to-transparent z-10"></div>
-    <div className={`h-64 w-full bg-gradient-to-br from-[#24283b] to-[#1a1b26] group-hover:scale-105 transition-transform duration-700 flex items-center justify-center relative`}>
+
+    <div
+      className={`h-64 w-full bg-gradient-to-br from-[#24283b] to-[#1a1b26] group-hover:scale-105 transition-transform duration-700 flex items-center justify-center relative`}
+    >
       <div className={`absolute inset-0 bg-${color}/5 mix-blend-overlay`}></div>
+
       <Code2 className="text-[#414868] opacity-20" size={64} />
     </div>
+
     <div className="relative z-20 p-8 -mt-20">
+
       <div className="flex justify-between items-end mb-4">
+
         <div>
-          <span className="text-[#bb9af7] text-xs font-bold tracking-wider uppercase mb-2 block">{category}</span>
-          <h3 className="text-2xl font-bold text-white group-hover:text-[#7aa2f7] transition-colors">{title}</h3>
+          <span className="text-[#bb9af7] text-xs font-bold tracking-wider uppercase mb-2 block">
+            {category}
+          </span>
+
+          <h3 className="text-2xl font-bold text-white group-hover:text-[#7aa2f7] transition-colors">
+            {title}
+          </h3>
         </div>
-        <div className="p-2 bg-[#7aa2f7] text-[#1a1b26] rounded-full hover:bg-white transition-colors transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-300">
-  <ExternalLink size={20} />
-        </div>
+
+        {/* FIXED BUTTON */}
+        {link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="p-2 bg-[#7aa2f7] text-[#1a1b26] rounded-full hover:bg-white transition-colors transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-300"
+          >
+            <ExternalLink size={20} />
+          </a>
+        )}
       </div>
-      <p className="text-[#a9b1d6] mb-6 line-clamp-2">{description}</p>
-      <div className="flex gap-3 text-sm text-[#565f89]">
+
+      <p className="text-[#a9b1d6] mb-6 line-clamp-2">
+        {description}
+      </p>
+
+      <div className="flex gap-3 text-sm text-[#565f89] flex-wrap">
         {tags.map((tag, i) => (
           <span key={i} className="flex items-center gap-1">
             <div className="w-1.5 h-1.5 rounded-full bg-[#7aa2f7]"></div>
@@ -481,43 +515,85 @@ const ProjectShowcase = ({ title, category, description, tags, color }) => (
 
 const FeaturedWork = () => (
   <section id="work" className="py-24 px-6 lg:px-8 relative z-10">
+
     <div className="max-w-screen-2xl mx-auto">
+
       <RevealOnScroll>
         <div className="flex justify-between items-end mb-16">
+
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Selected Work</h2>
-            <p className="text-[#a9b1d6] max-w-xl">A collection of projects where design meets functionality.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Selected Work
+            </h2>
+
+            <p className="text-[#a9b1d6] max-w-xl">
+              A collection of projects where design meets functionality.
+            </p>
           </div>
-          <a href="https://github.com/kashishch28" target="_blank" rel="noreferrer" className="hidden md:flex items-center gap-2 text-[#7aa2f7] hover:text-white transition-colors font-medium">
+
+          <a
+            href="https://github.com/kashishch28"
+            target="_blank"
+            rel="noreferrer"
+            className="hidden md:flex items-center gap-2 text-[#7aa2f7] hover:text-white transition-colors font-medium"
+          >
             View Github <ArrowRight size={18} />
           </a>
+
         </div>
       </RevealOnScroll>
+
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
         {[
-          { title: "AyurWell", category: "HealthTech", description: "A holistic wellness platform combining Ayurveda with modern technology using React and Node.js.", tags: ['Full Stack', 'Healthcare'], color: "green-500",  },
-          { title: "Syncora", category: "Web App", description: "A unique digital space blending daily journaling with mood-based music recommendations via Spotify API.", tags: ['React', 'Spotify API', 'Node'], color: "pink-500" ,link:"https://github.com/kashishch28/SYNCORA_"},
-          // { title: "EchoCart", category: "E-Commerce", description: "High-performance shopping solution with real-time analytics, inventory management, and Stripe integration.", tags: ['MERN', 'FinTech'], color: "blue-500" },
-          // { title: "UrbanPulse", category: "Data Analytics", description: "Traffic pattern visualization and predictive modeling for smart city infrastructure using historical sensor data.", tags: ['Python', 'Pandas', 'Tableau'], color: "orange-500" },
-          { title: "Mental Health Survey", category: "Data Analytics", description: "Analyzed tech workplace mental health trends using data visualization, cleaning, and predictive machine learning techniques.", tags: ['Python', 'Scikit-Learn', 'NLP'], color: "indigo-500" ,link:"https://github.com/kashishch28/DA-Projects"}
+          {
+            title: "AyurWell",
+            category: "HealthTech",
+            description:
+              "A holistic wellness platform combining Ayurveda with modern technology using React and Node.js.",
+            tags: ["Full Stack", "Healthcare"],
+            color: "green-500",
+            link: "https://github.com/kashishch28",
+          },
+
+          {
+            title: "Syncora",
+            category: "Web App",
+            description:
+              "A unique digital space blending daily journaling with mood-based music recommendations via Spotify API.",
+            tags: ["React", "Spotify API", "Node"],
+            color: "pink-500",
+            link: "https://github.com/kashishch28/SYNCORA_",
+          },
+
+          {
+            title: "Mental Health Survey",
+            category: "Data Analytics",
+            description:
+              "Analyzed tech workplace mental health trends using data visualization, cleaning, and predictive machine learning techniques.",
+            tags: ["Python", "Scikit-Learn", "NLP"],
+            color: "indigo-500",
+            link: "https://github.com/kashishch28/DA-Projects",
+          },
         ].map((project, index) => (
-    <RevealOnScroll key={index} delay={index * 100}>
-      <a
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block"
-      >
-        <ProjectShowcase {...project} />
-      </a>
-    </RevealOnScroll>
+          <RevealOnScroll key={index} delay={index * 100}>
+            <ProjectShowcase {...project} />
+          </RevealOnScroll>
         ))}
+
       </div>
+
       <div className="mt-12 text-center md:hidden">
-        <a href="https://github.com/kashishch28" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[#7aa2f7] font-medium">
+        <a
+          href="https://github.com/kashishch28"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 text-[#7aa2f7] font-medium"
+        >
           View all on Github <ArrowRight size={18} />
         </a>
       </div>
+
     </div>
   </section>
 );
