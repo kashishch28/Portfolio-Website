@@ -501,9 +501,16 @@ const FeaturedWork = () => (
           // { title: "UrbanPulse", category: "Data Analytics", description: "Traffic pattern visualization and predictive modeling for smart city infrastructure using historical sensor data.", tags: ['Python', 'Pandas', 'Tableau'], color: "orange-500" },
           { title: "Mental Health Survey", category: "Data Analytics", description: "Analyzed tech workplace mental health trends using data visualization, cleaning, and predictive machine learning techniques.", tags: ['Python', 'Scikit-Learn', 'NLP'], color: "indigo-500" ,link:"https://github.com/kashishch28/DA-Projects"}
         ].map((project, index) => (
-          <RevealOnScroll key={index} delay={index * 100}>
-            <ProjectShowcase {...project} />
-          </RevealOnScroll>
+    <RevealOnScroll key={index} delay={index * 100}>
+      <a
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        <ProjectShowcase {...project} />
+      </a>
+    </RevealOnScroll>
         ))}
       </div>
       <div className="mt-12 text-center md:hidden">
