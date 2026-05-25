@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import profilePhoto from "../assets/profile2.png";
+import profilePhoto from "../assets/profile.png";
 import {
   Github, Linkedin, Mail, ExternalLink, Menu, X, Code2, Database,
   BarChart3, Terminal, Rocket, Award, Briefcase, GraduationCap,
