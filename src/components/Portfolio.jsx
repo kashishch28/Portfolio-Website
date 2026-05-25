@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import profilePhoto from "../assets/profileP.jpeg";
+import profilePhoto from "../assets/profile2.png";
 import {
   Github, Linkedin, Mail, ExternalLink, Menu, X, Code2, Database,
   BarChart3, Terminal, Rocket, Award, Briefcase, GraduationCap,
@@ -1255,10 +1255,10 @@ const FeaturedWork = () => (
    CODING PROFILES
 ───────────────────────────────────────────── */
 const profiles = [
-  { platform: "LeetCode", handle: "kashish_ch1", url: "https://leetcode.com/u/kashish_ch1/", icon: Code2, c: "var(--amber)", stats: [["500+", "Solved"], ["Top 25%", "Global"]] },
+  { platform: "LeetCode", handle: "kashish_ch1", url: "https://leetcode.com/u/kashish_ch1/", icon: Code2, c: "var(--amber)", stats: [["600+", "Solved"], ["Top 25%", "Global"]] },
   { platform: "GeeksForGeeks", handle: "kashishchauq2zq", url: "https://auth.geeksforgeeks.org/user/kkashishchauq2zq/", icon: Terminal, c: "var(--green)", stats: [["1200+", "Score"], ["#12", "Institute"]] },
-  { platform: "GitHub", handle: "kashishch28", url: "https://github.com/kashishch28", icon: Github, c: "var(--purple)", stats: [["25+", "Repos"], ["300+", "Commits"]] },
-  { platform: "LinkedIn", handle: "Kashish Chaudhary", url: "https://linkedin.com/in/kashish-chaudhary-286aa1290/", icon: Linkedin, c: "var(--blue)", stats: [["400+", "Network"], ["550+", "Followers"]] },
+  { platform: "GitHub", handle: "kashishch28", url: "https://github.com/kashishch28", icon: Github, c: "var(--purple)", stats: [["30+", "Repos"], ["900+", "Commits"]] },
+  { platform: "LinkedIn", handle: "Kashish Chaudhary", url: "https://linkedin.com/in/kashish-chaudhary-286aa1290/", icon: Linkedin, c: "var(--blue)", stats: [["500+", "Network"], ["1000+", "Followers"]] },
 ];
 
 const CodingProfiles = () => (
