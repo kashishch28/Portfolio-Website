@@ -498,7 +498,7 @@ const Hero = () => (
                 <div key={c} style={{ width: 12, height: 12, borderRadius: "50%", background: c }} />
               ))}
             </div>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text)" }}>developer.tsx</span>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--text)" }}>developer.jsx</span>
             <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--green)" }}>● live</span>
           </div>
 
@@ -509,7 +509,7 @@ const Hero = () => (
               [<><span style={{ marginLeft: 20 }} /><span style={{ color: "var(--blue)" }}>role</span><span style={{ color: "var(--white)" }}>:</span> <span style={{ color: "var(--green)" }}>'Frontend Engineer'</span><span style={{ color: "var(--white)" }}>,</span></>],
               [<><span style={{ marginLeft: 20 }} /><span style={{ color: "var(--blue)" }}>stack</span><span style={{ color: "var(--white)" }}>:</span> <span style={{ color: "var(--purple)" }}>[</span><span style={{ color: "var(--green)" }}>'React'</span><span style={{ color: "var(--white)" }}>, </span><span style={{ color: "var(--green)" }}>'Node'</span><span style={{ color: "var(--white)" }}>, </span><span style={{ color: "var(--green)" }}>'AI'</span><span style={{ color: "var(--purple)" }}>]</span><span style={{ color: "var(--white)" }}>,</span></>],
               [<><span style={{ marginLeft: 20 }} /><span style={{ color: "var(--blue)" }}>passion</span><span style={{ color: "var(--white)" }}>:</span> <span style={{ color: "var(--green)" }}>'Clean, Performant UIs'</span><span style={{ color: "var(--white)" }}>,</span></>],
-              [<><span style={{ marginLeft: 20 }} /><span style={{ color: "var(--blue)" }}>dsa</span><span style={{ color: "var(--white)" }}>:</span> <span style={{ color: "var(--amber)" }}>500</span> <span style={{ color: "var(--purple)" }}>+</span> <span style={{ color: "var(--green)" }}>' problems'</span><span style={{ color: "var(--white)" }}>,</span></>],
+              [<><span style={{ marginLeft: 20 }} /><span style={{ color: "var(--blue)" }}>dsa</span><span style={{ color: "var(--white)" }}>:</span> <span style={{ color: "var(--amber)" }}>600</span> <span style={{ color: "var(--purple)" }}>+</span> <span style={{ color: "var(--green)" }}>' problems'</span><span style={{ color: "var(--white)" }}>,</span></>],
               [<><span style={{ marginLeft: 20 }} /><span style={{ color: "var(--blue)" }}>status</span><span style={{ color: "var(--white)" }}>:</span> <span style={{ color: "var(--green)" }}>'Open to Work 🚀'</span></>],
               [<><span style={{ color: "var(--white)" }}>{"}"}</span>;</>],
             ].map((line, i) => (
@@ -522,7 +522,7 @@ const Hero = () => (
 
           {/* Status bar */}
           <div style={{ background: "var(--blue)", padding: "6px 16px", display: "flex", gap: 16, alignItems: "center" }}>
-            {[["TypeScript", "tsx"], ["React 18", "jsx"], ["Tailwind", "css"]].map(([label, ext]) => (
+            {[["JavaScript", "jsx"], ["React 18", "jsx"], ["Tailwind", "css"]].map(([label, ext]) => (
               <span key={label} style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--bg)", letterSpacing: "0.1em" }}>{label} · .{ext}</span>
             ))}
           </div>
