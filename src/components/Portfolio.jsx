@@ -525,100 +525,73 @@ const Hero = () => (
 const HoloPhotoFrame = () => (
   <div style={{ position: "relative", width: 300, height: 340, margin: "0 auto" }}>
 
-    {/* Soft ambient glow behind photo */}
+    {/* Soft ambient glow */}
     <div style={{
-      position: "absolute", inset: -24, borderRadius: "50%",
-      background: "radial-gradient(circle, rgba(122,162,247,0.15) 0%, rgba(187,154,247,0.08) 50%, transparent 70%)",
-      animation: "photoGlow 4s ease-in-out infinite",
+      position: "absolute", inset: -32, borderRadius: "50%",
+      background: "radial-gradient(circle, rgba(122,162,247,0.10) 0%, rgba(187,154,247,0.05) 50%, transparent 70%)",
       pointerEvents: "none",
     }} />
 
-    {/* Spinning gradient border ring */}
+    {/* Outer frame — sharp, asymmetric offset border */}
     <div style={{
-      position: "absolute", inset: -3, borderRadius: 20,
-      background: "linear-gradient(135deg, #7aa2f7, #bb9af7, #7dcfff, #9ece6a, #7aa2f7)",
-      backgroundSize: "300% 300%",
-      animation: "borderSpin 4s linear infinite",
-      padding: 3,
+      position: "absolute",
+      top: 10, left: -10,
+      width: "100%", height: "100%",
+      border: "1px solid rgba(122,162,247,0.25)",
+      borderRadius: 14,
+      pointerEvents: "none",
+    }} />
+
+    {/* Main photo container */}
+    <div style={{
+      position: "relative", zIndex: 1,
+      width: "100%", height: "100%",
+      borderRadius: 14,
+      border: "1px solid rgba(255,255,255,0.08)",
+      overflow: "hidden",
+      boxShadow: "0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06)",
     }}>
-      {/* Dark inset to create border-only effect */}
-      <div style={{ width: "100%", height: "100%", borderRadius: 18, background: "var(--bg-alt)" }} />
+      <img
+        src={profilePhoto}
+        alt="Kashish Chaudhary"
+        style={{
+          width: "100%", height: "100%",
+          objectFit: "cover", objectPosition: "center top",
+          display: "block",
+          filter: "contrast(1.05) brightness(0.97)",
+        }}
+      />
+      {/* Subtle inner vignette */}
+      <div style={{
+        position: "absolute", inset: 0,
+        background: "linear-gradient(180deg, transparent 60%, rgba(4,5,8,0.5) 100%)",
+        pointerEvents: "none",
+      }} />
     </div>
-
-    {/* Corner bracket accents — top-left */}
-    <div style={{ position: "absolute", top: -6, left: -6, width: 20, height: 20,
-      borderTop: "2px solid #7aa2f7", borderLeft: "2px solid #7aa2f7", borderRadius: "4px 0 0 0" }} />
-    {/* top-right */}
-    <div style={{ position: "absolute", top: -6, right: -6, width: 20, height: 20,
-      borderTop: "2px solid #bb9af7", borderRight: "2px solid #bb9af7", borderRadius: "0 4px 0 0" }} />
-    {/* bottom-left */}
-    <div style={{ position: "absolute", bottom: -6, left: -6, width: 20, height: 20,
-      borderBottom: "2px solid #9ece6a", borderLeft: "2px solid #9ece6a", borderRadius: "0 0 0 4px" }} />
-    {/* bottom-right */}
-    <div style={{ position: "absolute", bottom: -6, right: -6, width: 20, height: 20,
-      borderBottom: "2px solid #7dcfff", borderRight: "2px solid #7dcfff", borderRadius: "0 0 4px 0" }} />
-
-    {/* The actual photo */}
-    <img
-      src={profilePhoto}
-      alt="Kashish Chaudhary"
-      style={{
-        position: "relative", zIndex: 1,
-        width: "100%", height: "100%",
-        objectFit: "cover", objectPosition: "center top",
-        borderRadius: 16,
-        display: "block",
-      }}
-    />
-
-    {/* Subtle scan line shimmer over photo */}
-    <div style={{
-      position: "absolute", inset: 0, borderRadius: 16, zIndex: 2,
-      background: "linear-gradient(180deg, transparent 0%, rgba(122,162,247,0.04) 50%, transparent 100%)",
-      backgroundSize: "100% 8px",
-      pointerEvents: "none",
-    }} />
 
     {/* Status chip — top right */}
     <div style={{
-      position: "absolute", top: 12, right: -16, zIndex: 3,
-      background: "rgba(4,5,8,0.92)", border: "1px solid rgba(122,162,247,0.3)",
-      borderRadius: 6, padding: "5px 11px", backdropFilter: "blur(12px)",
+      position: "absolute", top: 16, right: -14, zIndex: 3,
+      background: "rgba(4,5,8,0.88)", border: "1px solid rgba(158,206,106,0.35)",
+      borderRadius: 5, padding: "5px 12px", backdropFilter: "blur(12px)",
       fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.12em",
-      color: "var(--blue)", whiteSpace: "nowrap",
-      animation: "hudFloat 3s ease-in-out infinite",
+      color: "var(--green)", whiteSpace: "nowrap",
       boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
     }}>
-      <span style={{ color: "var(--green)", marginRight: 5 }}>●</span>OPEN TO WORK
+      <span style={{ marginRight: 5 }}>●</span>OPEN TO WORK
     </div>
 
     {/* Role chip — bottom left */}
     <div style={{
-      position: "absolute", bottom: 20, left: -20, zIndex: 3,
-      background: "rgba(4,5,8,0.92)", border: "1px solid rgba(187,154,247,0.3)",
-      borderRadius: 6, padding: "5px 11px", backdropFilter: "blur(12px)",
+      position: "absolute", bottom: 24, left: -14, zIndex: 3,
+      background: "rgba(4,5,8,0.88)", border: "1px solid rgba(187,154,247,0.3)",
+      borderRadius: 5, padding: "5px 12px", backdropFilter: "blur(12px)",
       fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.12em",
       color: "var(--purple)", whiteSpace: "nowrap",
-      animation: "hudFloat 3s ease-in-out infinite 1.5s",
       boxShadow: "0 4px 16px rgba(0,0,0,0.4)",
     }}>
       MERN · REACT · DSA
     </div>
-
-    <style>{`
-      @keyframes photoGlow {
-        0%,100% { opacity: 0.8; transform: scale(1); }
-        50%     { opacity: 1;   transform: scale(1.03); }
-      }
-      @keyframes borderSpin {
-        0%   { background-position: 0% 50%; }
-        100% { background-position: 300% 50%; }
-      }
-      @keyframes hudFloat {
-        0%,100% { transform: translateY(0px); }
-        50%     { transform: translateY(-5px); }
-      }
-    `}</style>
   </div>
 );
 
@@ -1538,6 +1511,16 @@ const ContactCTA = () => (
             borderRadius: 4, textTransform: "uppercase",
           }}>
             <Linkedin size={16} /> LinkedIn
+          </a>
+          <a href="/Kashish_Chaudhary_Resume.pdf" download className="mag-btn" style={{
+            display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 36px",
+            border: "1px solid rgba(158,206,106,0.4)", color: "var(--green)",
+            fontFamily: "var(--font-mono)", fontSize: 12, fontWeight: 700,
+            letterSpacing: "0.1em", textDecoration: "none",
+            borderRadius: 4, textTransform: "uppercase",
+            }}
+          >
+          <Layout size={16} /> Download CV
           </a>
           <a href="https://github.com/kashishch28" target="_blank" rel="noreferrer" className="mag-btn" style={{
             display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 36px",
