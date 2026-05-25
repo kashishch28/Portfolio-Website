@@ -409,9 +409,24 @@ const Hero = () => (
         </div>
 
         {/* Role */}
-        <div style={{ marginBottom: 24, fontSize: 18 }}>
-          <TypeWriter words={["Frontend Engineer", "Full Stack Developer", "DSA Enthusiast", "UI Craftsman"]} />
-        </div>
+        <div style={{ marginBottom: 24, fontSize: 18 }}><TypeWriter words={[
+      "Frontend Engineer",
+      "Full Stack Developer",
+      "MERN Stack Developer",
+      "React Developer",
+      "Software Engineer",
+      "DSA Enthusiast",
+      "Problem Solver",
+      "Backend Explorer",
+      "UI Craftsman",
+      "Tech Enthusiast",
+      "Open Source Learner",
+      "JavaScript Developer",
+      "Cloud & AI Learner",
+      "Web Developer"
+        ]}
+      />
+    </div>
 
         {/* Bio */}
         <p style={{ color: "var(--text)", lineHeight: 1.8, marginBottom: 40, maxWidth: 480, fontSize: 15 }}>
@@ -447,7 +462,7 @@ const Hero = () => (
 
         {/* Stats row */}
         <div style={{ marginTop: 56, display: "flex", gap: 40 }}>
-          {[["500+", "Problems Solved"], ["25+", "Repositories"], ["3+", "Years Coding"]].map(([n, l]) => (
+          {[["600+", "Problems Solved"], ["30+", "Repositories"], ["3+", "Years Coding"]].map(([n, l]) => (
             <div key={l}>
               <div style={{ fontFamily: "var(--font-display)", fontSize: 36, color: "var(--white)", letterSpacing: 1 }}>{n}</div>
               <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--text)", marginTop: 2 }}>{l}</div>
