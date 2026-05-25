@@ -1512,6 +1512,7 @@ const ContactCTA = () => (
           }}>
             <Linkedin size={16} /> LinkedIn
           </a>
+          
           <a href="/Kashish_Chaudhary_Resume.pdf" download className="mag-btn" style={{
             display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 36px",
             border: "1px solid rgba(158,206,106,0.4)", color: "var(--green)",
