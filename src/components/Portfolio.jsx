@@ -1244,9 +1244,9 @@ const FeaturedWork = () => (
    CODING PROFILES
 ───────────────────────────────────────────── */
 const profiles = [
-  { platform: "LeetCode", handle: "kashish_ch1", url: "https://leetcode.com/u/kashish_ch1/", icon: Code2, c: "var(--amber)", stats: [["600+", "Solved"], ["Top 25%", "Global"]] },
+  { platform: "LeetCode", handle: "kashish_ch1", url: "https://leetcode.com/u/kashish_ch1/", icon: Code2, c: "var(--amber)", stats: [["650+", "Solved"], ["Top 30%", "Global"]] },
   { platform: "GeeksForGeeks", handle: "kashishchauq2zq", url: "https://auth.geeksforgeeks.org/user/kkashishchauq2zq/", icon: Terminal, c: "var(--green)", stats: [["1200+", "Score"], ["#12", "Institute"]] },
-  { platform: "GitHub", handle: "kashishch28", url: "https://github.com/kashishch28", icon: Github, c: "var(--purple)", stats: [["30+", "Repos"], ["900+", "Commits"]] },
+  { platform: "GitHub", handle: "kashishch28", url: "https://github.com/kashishch28", icon: Github, c: "var(--purple)", stats: [["40+", "Repos"], ["1000+", "Commits"]] },
   { platform: "LinkedIn", handle: "Kashish Chaudhary", url: "https://linkedin.com/in/kashish-chaudhary-286aa1290/", icon: Linkedin, c: "var(--blue)", stats: [["500+", "Network"], ["1000+", "Followers"]] },
 ];
 
@@ -1529,7 +1529,7 @@ const ContactCTA = () => (
             <Linkedin size={16} /> LinkedIn
           </a>
           
-          <a href="/Kashish_Chaudhary_Resume.pdf" download className="mag-btn" style={{
+          <a href="/Kashish-Chaudhary-Resume.pdf" download className="mag-btn" style={{
             display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 36px",
             border: "1px solid rgba(158,206,106,0.4)", color: "var(--green)",
             fontFamily: "var(--font-mono)", fontSize: 12, fontWeight: 700,
