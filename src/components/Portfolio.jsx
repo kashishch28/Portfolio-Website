@@ -1157,23 +1157,24 @@ const Expertise = () => (
    FEATURED WORK
 ───────────────────────────────────────────── */
 const projects = [
-  {
-    title: "AyurWell",
-    cat: "HealthTech",
-    desc: "A holistic wellness platform combining Ayurveda with modern technology. Built with React + Node.js, featuring personalized recommendations and health tracking.",
-    tags: ["Full Stack", "Healthcare", "MERN"],
-    url: "https://github.com/kashishch28",
-    accent: "var(--green)",
-    visual: "radial-gradient(ellipse at 30% 50%, rgba(158,206,106,0.15) 0%, transparent 60%)",
-  },
+  
   {
     title: "Syncora",
     cat: "Web App",
     desc: "Digital journaling meets music intelligence. Mood-based music recommendations via Spotify API, paired with reflective journaling and analytics.",
     tags: ["React", "Spotify API", "Node.js"],
-    url: "https://github.com/kashishch28",
+    url: "https://syncora0.vercel.app/",
     accent: "var(--purple)",
     visual: "radial-gradient(ellipse at 70% 30%, rgba(187,154,247,0.15) 0%, transparent 60%)",
+  },
+  {
+    title: "AyurWell",
+    cat: "HealthTech",
+    desc: "A responsive wellness web platform developed using HTML, CSS, and JavaScript, featuring interactive UI components, personalized recommendations, and wellness tracking functionality.",
+    tags: ["HTML", "CSS", "JavaScript", "Frontend"],
+    url: "https://github.com/kashishch28/Ayur",
+    accent: "var(--green)",
+    visual: "radial-gradient(ellipse at 30% 50%, rgba(158,206,106,0.15) 0%, transparent 60%)",
   },
   {
     title: "Mental Health Survey",
